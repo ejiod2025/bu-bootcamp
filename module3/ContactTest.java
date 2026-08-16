@@ -39,4 +39,13 @@ public class ContactTest {
 
         assertEquals("+1 (212) 555-0142", formattedPhone.getPhone());
     }
+
+    @Test
+    void contactsWithSameNameMaintainIndependentPhoneNumbers() {
+        Contact first = new Contact("Alex Morgan", "555-0101");
+        Contact second = new Contact("Alex Morgan", "555-0199");
+
+        assertEquals("555-0101", first.getPhone());
+        assertEquals("555-0199", second.getPhone());
+    }
 }
